@@ -1,79 +1,105 @@
 import { PokemonCard } from "@/components/Shared/Card/PokemonCard.";
 import { StatusBar } from "expo-status-bar";
-import { useState } from "react";
 import {
-  ActivityIndicator,
+  ImageProps,
   Platform,
   ScrollView,
+  SectionList,
   StyleSheet,
-  useWindowDimensions,
+  Text,
+  TextStyle,
   View,
 } from "react-native";
-import { FlatList } from "react-native-gesture-handler";
+import { FlatList, GestureHandlerRootView } from "react-native-gesture-handler";
 import { SafeAreaView } from "react-native-safe-area-context";
+import PokemonData from "@/PokemonData.json";
+import HeroSection from "@/components/HomePage/HeroSection/HeroSection";
+import { getTypeStyle } from "@/utils/TypeStyles/TypeStyle";
+
+type Pokemon = {
+  name: string;
+  type: string;
+  base_experience: number;
+  height: number;
+  weight: number;
+  abilities: string[];
+  hp: number;
+  image: string;
+};
+
+type TtypeGroup = {
+  type: string;
+  data: Pokemon[];
+};
 
 export default function HomeScreen() {
-  const PokemonData = [
-    {
-      name: "Charmander",
-      type: "Fire",
-      base_experience: 62,
-      height: 6,
-      weight: 85,
-      abilities: ["Blaze", "Solar Power"],
-      hp: 39,
-      image: require("../../assets/images/charmander.png"),
+  const HeroSectionPokemon: Pokemon[] = PokemonData.filter(
+    (pokemon) => pokemon.isHero === true
+  );
+
+  const typeWisePokemon = PokemonData.reduce<TtypeGroup[]>(
+    (acc, currentPokemon) => {
+      let typeGroup = acc.find(
+        (group: TtypeGroup) => group.type === currentPokemon.type
+      );
+
+      if (!typeGroup) {
+        typeGroup = {
+          type: currentPokemon.type,
+          data: [],
+        };
+        acc.push(typeGroup);
+      }
+
+      typeGroup.data.push(currentPokemon);
+
+      return acc;
     },
-    {
-      name: "Squirtle",
-      type: "Water",
-      base_experience: 63,
-      height: 5,
-      weight: 90,
-      abilities: ["Torrent", "Rain Dish"],
-      hp: 44,
-      image: require("../../assets/images/squirtle.png"),
-    },
-    {
-      name: "Bulbasaur",
-      type: "Grass",
-      base_experience: 64,
-      height: 7,
-      weight: 69,
-      abilities: ["Overgrow", "Chlorophyll"],
-      hp: 45,
-      image: require("../../assets/images/bulbasaur.png"),
-    },
-    {
-      name: "Pikachu",
-      type: "Electric",
-      base_experience: 112,
-      height: 4,
-      weight: 60,
-      abilities: ["Static", "Lightning Rod"],
-      hp: 35,
-      image: require("../../assets/images/pikachu.png"),
-    },
-  ];
+    []
+  );
 
   return (
-    <ScrollView style={{ flex: 1 }}>
-      <StatusBar style="auto" backgroundColor="black" />
-      <SafeAreaView style={styles.container}>
-        {/* <View>
-          {PokemonData.map((pokemon, index) => (
-            <PokemonCard key={index} {...pokemon} />
-          ))}
-        </View> */}
-
-        <FlatList
-          data={PokemonData}
-          renderItem={({ item }) => {
-            return <PokemonCard {...item} />;
-          }}
-        />
-      </SafeAreaView>
-    </ScrollView>
+    <GestureHandlerRootView style={{ flex: 1 }}>
+      <ScrollView style={{ flex: 1 }}>
+        <SafeAreaView style={styles.container}>
+          <StatusBar style="auto" backgroundColor="black" />
+          <HeroSection PokemonData={HeroSectionPokemon as any} />
+          <SectionList
+            sections={typeWisePokemon}
+            renderItem={({ item }) => <PokemonCard {...item} />}
+            renderSectionHeader={({ section }) => {
+              return (
+                <Text
+                  style={[
+                    styles.typetext,
+                    getTypeStyle(section.type) as TextStyle,
+                  ]}
+                >
+                  {section.type}
+                </Text>
+              );
+            }}
+            ItemSeparatorComponent={() => <View style={{ height: 20 }} />}
+            ListEmptyComponent={() => {
+              return (
+                typeWisePokemon.length === 0 && (
+                  <Text
+                    style={{
+                      textAlign: "center",
+                      fontSize: 20,
+                      color: "gray",
+                      marginTop: 20,
+                    }}
+                  >
+                    No data
+                  </Text>
+                )
+              );
+            }}
+          />
+        </SafeAreaView>
+      </ScrollView>
+    </GestureHandlerRootView>
   );
 }
 
@@ -81,5 +107,11 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     paddingTop: Platform.OS === "android" ? 25 : 0,
+  },
+  typetext: {
+    fontSize: 30,
+    fontWeight: "bold",
+    margin: 20,
+    textAlign: "center",
   },
 });

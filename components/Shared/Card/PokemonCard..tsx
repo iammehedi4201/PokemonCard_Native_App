@@ -16,7 +16,7 @@ type PokemonCardProps = {
   weight: number;
   abilities: string[];
   hp: number;
-  image: ImageProps;
+  image: string;
 };
 
 const getTypeStyle = (type: string): { borderColor: string; emoji: string } => {
@@ -46,6 +46,8 @@ export const PokemonCard = ({
 }: PokemonCardProps) => {
   const { borderColor, emoji } = getTypeStyle(type);
 
+  console.log("Image", image);
+
   return (
     <View style={styles.card}>
       <View style={styles.nameContainer}>
@@ -55,7 +57,7 @@ export const PokemonCard = ({
 
       <Image
         style={styles.image}
-        source={image}
+        source={{ uri: image }}
         resizeMode="contain"
         accessibilityLabel={`${name} pokemon`}
       />
@@ -79,7 +81,7 @@ const styles = StyleSheet.create({
     borderRadius: 16,
     borderWidth: 2,
     padding: 16,
-    margin: 16,
+    marginHorizontal: 16,
     ...Platform.select({
       ios: {
         shadowOffset: { width: 0, height: 2 },

@@ -1,0 +1,166 @@
+[
+  {
+    "name": "Charmander",
+    "type": "Fire",
+    "base_experience": 62,
+    "height": 6,
+    "weight": 85,
+    "abilities": ["Blaze", "Solar Power"],
+    "hp": 39,
+    "image": "./assets/images/Fire_Pokemon/charmander.png",
+    "isHero": true
+  },
+  {
+    "name": "Squirtle",
+    "type": "Water",
+    "base_experience": 63,
+    "height": 5,
+    "weight": 90,
+    "abilities": ["Torrent", "Rain Dish"],
+    "hp": 44,
+    "image": "./assets/images/Water_Pokemon/squirtle.png",
+    "isHero": true
+  },
+  {
+    "name": "Bulbasaur",
+    "type": "Grass",
+    "base_experience": 64,
+    "height": 7,
+    "weight": 69,
+    "abilities": ["Overgrow", "Chlorophyll"],
+    "hp": 45,
+    "image": "./assets/images/Grass_Pokemon/bulbasaur.png", 
+    "isHero": true
+  },
+  {
+    "name": "Pikachu",
+    "type": "Electric",
+    "base_experience": 112,
+    "height": 4,
+    "weight": 60,
+    "abilities": ["Static", "Lightning Rod"],
+    "hp": 35,
+    "image": "./assets/images/Eletric_Pokemon/pikachu.png",
+    "isHero": true
+  },
+  {
+    "name": "Electrode",
+    "type": "Electric",
+    "base_experience": 168,
+    "height": 12,
+    "weight": 666,
+    "abilities": ["Soundproof", "Static"],
+    "hp": 60,
+    "image": "./assets/images/Eletric_Pokemon/Electrode.png"
+  },
+  {
+    "name": "Raichu",
+    "type": "Electric",
+    "base_experience": 218,
+    "height": 8,
+    "weight": 300,
+    "abilities": ["Static", "Lightning Rod"],
+    "hp": 60,
+    "image": "./assets/images/Eletric_Pokemon/raichu.png"
+  },
+  {
+    "name": "Zapdos",
+    "type": "Electric",
+    "base_experience": 216,
+    "height": 16,
+    "weight": 526,
+    "abilities": ["Pressure", "Static"],
+    "hp": 90,
+    "image": "./assets/images/Eletric_Pokemon/zapdos.png"
+  },
+  {
+    "name": "Dragonite",
+    "type": "Fire",
+    "base_experience": 270,
+    "height": 22,
+    "weight": 2100,
+    "abilities": ["Inner Focus", "Multiscale"],
+    "hp": 91,
+    "image": "./assets/images/Fire_Pokemon/dragonite.png"
+  },
+  {
+    "name": "Moltres",
+    "type": "Fire",
+    "base_experience": 261,
+    "height": 20,
+    "weight": 600,
+    "abilities": ["Pressure", "Flame Body"],
+    "hp": 90,
+    "image": "./assets/images/Fire_Pokemon/moltres.png"
+  },
+  {
+    "name": "Magmar",
+    "type": "Fire",
+    "base_experience": 173,
+    "height": 13,
+    "weight": 445,
+    "abilities": ["Flame Body", "Vital Spirit"],
+    "hp": 65,
+    "image": "./assets/images/Fire_Pokemon/magmar.png"
+  },
+  {
+    "name": "Bellossom",
+    "type": "Grass",
+    "base_experience": 221,
+    "height": 4,
+    "weight": 58,
+    "abilities": ["Chlorophyll", "Healer"],
+    "hp": 75,
+    "image": "./assets/images/Grass_Pokemon/bellossom.png"
+  },
+  {
+    "name": "Deerling",
+    "type": "Grass",
+    "base_experience": 67,
+    "height": 6,
+    "weight": 195,
+    "abilities": ["Chlorophyll", "Sap Sipper"],
+    "hp": 60,
+    "image": "./assets/images/Grass_Pokemon/deerling.png"
+  },
+  {
+    "name": "Meowscarada",
+    "type": "Grass",
+    "base_experience": 60,
+    "height": 6,
+    "weight": 86,
+    "abilities": ["Chlorophyll", "Own Tempo"],
+    "hp": 74,
+    "image": "./assets/images/Grass_Pokemon/meowscarada.png"
+  },
+  {
+    "name": "Blastoise",
+    "type": "Water",
+    "base_experience": 239,
+    "height": 16,
+    "weight": 855,
+    "abilities": ["Torrent", "Rain Dish"],
+    "hp": 79,
+    "image": "./assets/images/Water_Pokemon/blastoise.png"
+  },
+  {
+    "name": "Lapras",
+    "type": "Water",
+    "base_experience": 219,
+    "height": 25,
+    "weight": 2200,
+    "abilities": ["Water Absorb", "Shell Armor"],
+    "hp": 130,
+    "image": "./assets/images/Water_Pokemon/lapras.png"
+  },
+  {
+    "name": "Vaporeon",
+    "type": "Water",
+    "base_experience": 184,
+    "height": 10,
+    "weight": 290,
+    "abilities": ["Water Absorb", "Hydration"],
+    "hp": 130,
+    "image": "./assets/images/Water_Pokemon/vaporeon.png"
+  }
+]
