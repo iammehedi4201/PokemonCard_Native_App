@@ -9,10 +9,10 @@ import {
   useWindowDimensions,
   View,
 } from "react-native";
+import { FlatList } from "react-native-gesture-handler";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function HomeScreen() {
-
   const PokemonData = [
     {
       name: "Charmander",
@@ -60,9 +60,18 @@ export default function HomeScreen() {
     <ScrollView style={{ flex: 1 }}>
       <StatusBar style="auto" backgroundColor="black" />
       <SafeAreaView style={styles.container}>
-        {PokemonData.map((pokemon, index) => (
-          <PokemonCard key={index} {...pokemon} />
-        ))}
+        {/* <View>
+          {PokemonData.map((pokemon, index) => (
+            <PokemonCard key={index} {...pokemon} />
+          ))}
+        </View> */}
+
+        <FlatList
+          data={PokemonData}
+          renderItem={({ item }) => {
+            return <PokemonCard {...item} />;
+          }}
+        />
       </SafeAreaView>
     </ScrollView>
   );
