@@ -39,6 +39,18 @@ export default function TabLayout() {
           ),
         }}
       />
+      <Tabs.Screen
+        name="cards"
+        options={{
+          title: "Card",
+          tabBarIcon: ({ color, focused }) => (
+            <TabBarIcon
+              name={focused ? "card" : "card-outline"}
+              color={"red"}
+            />
+          ),
+        }}
+      />
     </Tabs>
   );
 }
